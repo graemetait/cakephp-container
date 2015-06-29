@@ -1,0 +1,23 @@
+{
+    "name": "burriko/cakephp-container",
+    "description": "Adds League's DI Container to CakePHP 2.x",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "container", "dependency", "injection"],
+    "homepage": "https://github.com/burriko/cakephp-container",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Graeme Tait",
+            "homepage": "http://graemetait.co.uk",
+            "role": "Author"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/burriko/cakephp-container/issues",
+        "source": "https://github.com/burriko/cakephp-container"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "composer/installers": "*"
+    }
+}
