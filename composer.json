@@ -1,5 +1,5 @@
 {
-    "name": "burriko/cakephp-container",
+    "name": "burriko/cake-container",
     "description": "Adds League's DI Container to CakePHP 2.x",
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "container", "dependency", "injection"],
