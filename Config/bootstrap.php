@@ -2,13 +2,21 @@
 App::uses('CakeEventManager', 'Event');
 App::uses('ClassRegistry', 'Utility');
 
-// Store instance of Container for use as singleton
-ClassRegistry::addObject('container', new League\Container\Container());
+call_user_func(function() {
+	$container = new League\Container\Container();
 
-// Add Container instance to all controllers that implement ContainerAwareInterface
-CakeEventManager::instance()->attach(function ($event) {
-	$controller = $event->subject;
-	if ($controller instanceof League\Container\ContainerAwareInterface) {
-		$controller->setContainer(ClassRegistry::getObject('container'));
+	// Store instance of Container for use as singleton
+	ClassRegistry::addObject('container', $container);
+
+	if (file_exists(APP.'Config/container.php')) {
+		require APP.'Config/container.php';
 	}
-}, 'Controller.initialize');
+
+	// Add Container instance to all controllers that implement ContainerAwareInterface
+	CakeEventManager::instance()->attach(function ($event) use ($container) {
+		$controller = $event->subject;
+		if ($controller instanceof League\Container\ContainerAwareInterface) {
+			$controller->setContainer($container);
+		}
+	}, 'Controller.initialize');
+});
