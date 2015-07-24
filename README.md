@@ -10,7 +10,7 @@ I support a number of legacy CakePHP applications, and the lack of a container o
 
 ## Installation
 
-Install with composer. You'll need to specify the repository until I put it on packagist.
+Install with composer. You'll need to specify the repository until I put it on packagist and version it properly.
 ```
     "require": {
         "burriko/cake-container": "*"
