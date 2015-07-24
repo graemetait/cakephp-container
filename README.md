@@ -36,14 +36,26 @@ Create a file at Config/container.php to contain your container config. In here 
 $container->addServiceProvider(new Jobsoc\ServiceProvider\DocumentManagementServiceProvider);
 ```
 
+Check the [League Container docs](http://container.thephpleague.com) for more useful examples.
+
+### Usage within Controllers
 You can access the container from within a controller by calling `$this->getContainer()`. So to get an instance of a class named DocumentManagement that was set up by your service provider you could do this in your controller.
 ```
 $this->getContainer()->get(Jobsoc\DocumentSearch\DocumentManagement::class);
 ```
 
+### Usage within Shells
+You can access the container in a shell the same way you'd use it in a controller by extending ContainerAwareShell. The easiest way to do this is to change AppShell to extend ContainerAwareShell.
+```
+<?php
+App::uses('ContainerAwareShell', 'CakeContainer.Shell');
+
+class AppShell extends ContainerAwareShell {}
+```
+
+### Usage from other places
 If you really need to use the container outside of a controller you can get an instance of it from the ClassRegistry.
 ```
 ClassRegistry::getObject('container')->get('Jobsoc\DocumentSearch\DocumentManagement');
 ```
 
-Check the [League Container docs](http://container.thephpleague.com) for more useful examples.
