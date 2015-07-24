@@ -8,7 +8,7 @@ This installs League's Container, injects it into controllers, and adds it into 
 
 I support a number of legacy CakePHP applications, and the lack of a container or a nice way to do DI was annoying.
 
-## How?
+## Installation
 
 Install with composer. You'll need to specify the repository until I put it on packagist.
 ```
@@ -27,6 +27,8 @@ Load the plugin in Config/bootstrap.php. Bootstrap needs to be set to true.
 ```
 CakePlugin::loadAll(['CakeContainer' => ['bootstrap' => true]]);
 ```
+
+## Usage
 
 Create a file at Config/container.php to contain your container config. In here you can specify anything from the [League Container docs](http://container.thephpleague.com). For example, to load a service provider your config file would contain something like:
 ```
