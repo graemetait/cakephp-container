@@ -38,6 +38,14 @@ $container->addServiceProvider(new Jobsoc\ServiceProvider\DocumentManagementServ
 
 Check the [League Container docs](http://container.thephpleague.com) for more useful examples.
 
+Change `AppController` so that it implements `League\Container\ContainerAwareInterface` and uses the `League\Container\ContainerAwareTrait` trait.
+```
+class AppController extends Controller implements League\Container\ContainerAwareInterface
+{
+    use League\Container\ContainerAwareTrait;
+}
+```
+
 ### Usage within Controllers
 You can access the container from within a controller by calling `$this->getContainer()`. So to get an instance of a class named DocumentManagement that was set up by your service provider you could do this in your controller.
 ```
