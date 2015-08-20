@@ -3,6 +3,7 @@
 App::uses('ClassRegistry', 'Utility');
 
 require(__DIR__ . '/../Controller/ContainerController.php');
+require(__DIR__ . '/../Console/Command/ContainerShell.php');
 
 class ContainerTest extends CakeTestCase
 {
@@ -18,11 +19,20 @@ class ContainerTest extends CakeTestCase
 		$this->assertInstanceOf('League\Container\Container', ClassRegistry::getObject('container'));
 	}
 
+	public function testContainerAddedToShell()
+	{
+		$shell = new ContainerShell();
+
+		$this->assertInstanceOf('League\Container\Container', $shell->getContainer());
+	}
+
 	public function testAllUsingSameInstance()
 	{
 		$controller = $this->bootController();
+		$shell = new ContainerShell();
 
 		$this->assertEqual($controller->getContainer(), ClassRegistry::getObject('container'));
+		$this->assertEqual($shell->getContainer(), ClassRegistry::getObject('container'));
 	}
 
 	public function tearDown()
