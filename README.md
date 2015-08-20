@@ -10,17 +10,9 @@ I support a number of legacy CakePHP applications, and the lack of a container o
 
 ## Installation
 
-Install with composer. You'll need to specify the repository until I put it on packagist and version it properly.
+Install with composer.
 ```
-    "require": {
-        "burriko/cake-container": "*"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "https://github.com/burriko/cakephp-container.git"
-        }
-    ],
+composer require burriko/cake-container
 ```
 
 Load the plugin in Config/bootstrap.php. Bootstrap needs to be set to true.
