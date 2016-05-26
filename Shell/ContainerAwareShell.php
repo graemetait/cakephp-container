@@ -11,6 +11,8 @@ class ContainerAwareShell extends Shell implements ContainerAwareInterface
 	{
 		parent::__construct($stdout = null, $stderr = null, $stdin = null);
 
-		$this->setContainer(ClassRegistry::getObject('container'));
+		if ($container = ClassRegistry::getObject('container')) {
+			$this->setContainer(ClassRegistry::getObject('container'));
+		}
 	}
 }
